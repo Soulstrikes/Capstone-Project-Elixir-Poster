@@ -2,7 +2,9 @@
    RESET
 ========================= */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -42,12 +44,13 @@
   --purple-600: #534AB7;
 
   /* TYPOGRAPHY */
-  --fs-xs: 0.55rem;
-  --fs-sm: 0.72rem;
-  --fs-base: 0.9rem;
-  --fs-md: 1rem;
-  --fs-lg: 1.25rem;
-  --fs-xl: clamp(2rem, 5vw, 3.2rem);
+
+  --fs-xs: clamp(0.65rem, 0.35vw, 0.8rem);
+  --fs-sm: clamp(0.8rem, 0.5vw, 1rem);
+  --fs-base: clamp(0.95rem, 0.6vw, 1.1rem);
+  --fs-md: clamp(1.1rem, 0.8vw, 1.4rem);
+  --fs-lg: clamp(1.3rem, 1vw, 1.7rem);
+  --fs-xl: clamp(2rem, 3vw, 3.5rem);
 
   /* SPACING */
   --space-xs: 0.4rem;
@@ -108,7 +111,7 @@ body {
 
   overflow: hidden;
 
-  box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.28);
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.28);
 }
 
 /* =========================
@@ -139,8 +142,8 @@ body {
   inset: 0;
 
   background-image:
-    linear-gradient(rgba(93,202,165,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(93,202,165,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(93, 202, 165, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(93, 202, 165, 0.07) 1px, transparent 1px);
 
   background-size: 2.4rem 2.4rem;
 
@@ -175,7 +178,7 @@ body {
 
   font-size: var(--fs-sm);
 
-  color: rgba(255,255,255,0.58);
+  color: rgba(255, 255, 255, 0.58);
 
   letter-spacing: 0.03em;
 
@@ -210,15 +213,15 @@ body {
 
   border-radius: var(--radius-md);
 
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
 
   font-size: var(--fs-xs);
 
@@ -234,36 +237,40 @@ body {
   gap: 0.4rem;
 }
 
+/* Name */
 .contact-name {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--white);
+  letter-spacing: 0.02em;
 }
 
+/* Role */
 .contact-role {
-  font-size: var(--fs-xs);
+  font-size: 0.9rem;
   color: var(--accent);
-  margin-bottom: 0.3rem;
+  letter-spacing: 0.04em;
 }
 
-/* row with icon + text */
+/* Email + LinkedIn rows */
 .contact-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
-  font-size: var(--fs-xs);
-  color: var(--white);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* icons */
+/* Icons */
 .contact-icon {
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.85;
+}
 
-  object-fit: contain;
-
-  opacity: 0.8;
+.contact-link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
 }
 
 /* =========================
@@ -278,7 +285,7 @@ body {
 
   grid-template-columns: 4rem repeat(5, 1fr);
 
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .week-corner {
@@ -291,7 +298,7 @@ body {
 
 .week-month {
   font-size: var(--fs-xs);
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -303,7 +310,7 @@ body {
 
   text-align: center;
 
-  border-right: 1px solid rgba(255,255,255,0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 
   display: flex;
   flex-direction: column;
@@ -319,7 +326,7 @@ body {
 
   font-size: var(--fs-xs);
 
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
 
   text-transform: uppercase;
 
@@ -332,7 +339,7 @@ body {
 
   font-size: 1.3rem;
 
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
 
   font-weight: 300;
 }
@@ -425,13 +432,11 @@ body {
   background: var(--white);
 
   background-image:
-    repeating-linear-gradient(
-      90deg,
+    repeating-linear-gradient(90deg,
       transparent,
       transparent calc(20% - 1px),
       var(--gray-50) calc(20% - 1px),
-      var(--gray-50) 20%
-    );
+      var(--gray-50) 20%);
 }
 
 /* =========================
@@ -474,7 +479,7 @@ body {
 
   overflow: hidden;
 
-  box-shadow: 0 0.1rem 0.35rem rgba(0,0,0,0.05);
+  box-shadow: 0 0.1rem 0.35rem rgba(0, 0, 0, 0.05);
   min-height: 0;
 }
 
@@ -493,12 +498,29 @@ body {
 
 /* CARD COLORS */
 
-.c-teal::before   { background: var(--accent-dim); }
-.c-blue::before   { background: var(--blue-400); }
-.c-amber::before  { background: var(--amber-200); }
-.c-coral::before  { background: var(--coral-400); }
-.c-purple::before { background: var(--purple-600); }
-.c-black::before  { background: var(--black); }
+.c-teal::before {
+  background: var(--accent-dim);
+}
+
+.c-blue::before {
+  background: var(--blue-400);
+}
+
+.c-amber::before {
+  background: var(--amber-200);
+}
+
+.c-coral::before {
+  background: var(--coral-400);
+}
+
+.c-purple::before {
+  background: var(--purple-600);
+}
+
+.c-black::before {
+  background: var(--black);
+}
 
 /* CARD TAG */
 
@@ -515,12 +537,29 @@ body {
   font-weight: 700;
 }
 
-.c-teal .card-tag   { color: var(--accent-dim); }
-.c-blue .card-tag   { color: var(--blue-600); }
-.c-amber .card-tag  { color: #854F0B; }
-.c-coral .card-tag  { color: var(--coral-400); }
-.c-purple .card-tag { color: var(--purple-600); }
-.c-black .card-tag  { color: var(--gray-400); }
+.c-teal .card-tag {
+  color: var(--accent-dim);
+}
+
+.c-blue .card-tag {
+  color: var(--blue-600);
+}
+
+.c-amber .card-tag {
+  color: #854F0B;
+}
+
+.c-coral .card-tag {
+  color: var(--coral-400);
+}
+
+.c-purple .card-tag {
+  color: var(--purple-600);
+}
+
+.c-black .card-tag {
+  color: var(--gray-400);
+}
 
 /* CARD HEADING */
 
@@ -528,7 +567,7 @@ body {
 
   font-family: 'DM Serif Display', serif;
 
-  font-size: 1.05rem;
+  font-size: clamp(1.1rem, 1vw, 1.6rem);
 
   line-height: 1.2;
 
@@ -758,7 +797,8 @@ body {
 }
 
 .heading-x--indent {
-  margin-left: 1rem; /* adjust as needed in rem */
+  margin-left: 1rem;
+  /* adjust as needed in rem */
 }
 
 /* =========================
@@ -771,7 +811,7 @@ body {
 
   line-height: 1.55;
 
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 
   word-break: break-word;
 }
@@ -800,9 +840,9 @@ body {
 
   border-radius: var(--radius-md);
 
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
 
   display: flex;
 
@@ -829,7 +869,7 @@ body {
 
   display: block;
 
-  margin-top:1rem;
+  margin-top: 1rem;
 }
 
 /* =========================
@@ -842,7 +882,7 @@ body {
 
   line-height: 1.45;
 
-  color: rgba(255,255,255,0.62);
+  color: rgba(255, 255, 255, 0.62);
 
   margin-bottom: 0.55rem;
 }
