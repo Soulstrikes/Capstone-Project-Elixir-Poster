@@ -212,26 +212,19 @@ body {
 /* QR */
 
 .qr-box {
-
   width: 8rem;
   height: 8rem;
 
   border-radius: var(--radius-md);
-
   border: 1px solid rgba(255, 255, 255, 0.15);
-
   background: rgba(255, 255, 255, 0.04);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: rgba(255, 255, 255, 0.35);
-
-  font-size: var(--fs-xs);
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  padding: 0.5rem;
+  overflow: hidden;
 }
 
 .qr-img {
@@ -866,6 +859,8 @@ body {
   padding: 0.3rem;
 
   overflow: hidden;
+
+  max-height: 5rem;
 }
 
 .footer-logo-img {
@@ -916,6 +911,15 @@ body {
   .footer-center {
     align-items: flex-start;
   }
+
+  .footer-logo-img {
+    max-height: 3rem;
+  }
+}
+
+.qr-box {
+  width: clamp(5.5rem, 18vw, 7rem);
+  height: clamp(5.5rem, 18vw, 7rem);
 }
 
 /* =========================
