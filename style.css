@@ -15,33 +15,32 @@
 ========================= */
 
 :root {
-
   /* COLORS */
   --black: #0a0a0a;
   --black-mid: #141414;
   --black-soft: #1e1e1e;
 
-  --accent: #5DCAA5;
-  --accent-dim: #1D9E75;
+  --accent: #5dcaa5;
+  --accent-dim: #1d9e75;
   --accent-dark: #085041;
 
   --white: #ffffff;
   --off-white: #f5f4f1;
 
-  --gray-50: #F1EFE8;
-  --gray-100: #D3D1C7;
-  --gray-200: #B4B2A9;
+  --gray-50: #f1efe8;
+  --gray-100: #d3d1c7;
+  --gray-200: #b4b2a9;
   --gray-400: #888780;
-  --gray-600: #5F5E5A;
+  --gray-600: #5f5e5a;
 
-  --blue-400: #378ADD;
-  --blue-600: #185FA5;
+  --blue-400: #378add;
+  --blue-600: #185fa5;
 
-  --amber-200: #EF9F27;
+  --amber-200: #ef9f27;
 
-  --coral-400: #D85A30;
+  --coral-400: #d85a30;
 
-  --purple-600: #534AB7;
+  --purple-600: #534ab7;
 
   /* TYPOGRAPHY */
 
@@ -80,7 +79,7 @@ body {
 
   background: #d8d8d5;
 
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 
   display: flex;
   justify-content: center;
@@ -94,7 +93,6 @@ body {
 ========================= */
 
 .poster {
-
   /*
     A1 ratio = 1 : 1.414
     Responsive on screen
@@ -120,7 +118,6 @@ body {
 ========================= */
 
 .header {
-
   background: var(--black);
 
   padding: 0.7rem 2rem 1rem 2rem;
@@ -129,15 +126,19 @@ body {
   justify-content: space-between;
   align-items: flex-start;
 
-  gap: 3rem;
+  gap: 2rem;
 
   position: relative;
   overflow: hidden;
 }
 
-.header::before {
+.header-left,
+.header-right {
+  min-width: 0;
+}
 
-  content: '';
+.header::before {
+  content: "";
 
   position: absolute;
   inset: 0;
@@ -151,19 +152,28 @@ body {
   pointer-events: none;
 }
 
+.header-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-left: auto;
+}
+
 .header-left {
   flex: 1;
-  min-width: 0;
-  position: relative;
-  z-index: 1;
 }
 
 .header-title {
-  font-family: 'DM Serif Display', serif;
+  font-family: "DM Serif Display", serif;
   font-size: clamp(2rem, 4.5vw, 3.3rem);
   line-height: 0.9;
   color: var(--white);
   margin-bottom: 0; /* IMPORTANT FIX */
+  max-width: 100%;
+  overflow-wrap: break-word;
+  margin-bottom: 1rem;
 }
 
 .header-title em {
@@ -181,12 +191,15 @@ body {
 }
 
 .header-sub {
-
   font-size: var(--fs-sm);
 
   color: rgba(255, 255, 255, 0.58);
 
   letter-spacing: 0.03em;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 /* =========================
@@ -194,18 +207,15 @@ body {
 ========================= */
 
 .header-right {
-
-  width: 13rem;
+  width: 30rem;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* KEY FIX */
+  justify-content: space-between;
+  align-items: flex-start;
 
-  align-items: flex-end;
-
-  gap: 1rem;
-
-  position: relative;
-  z-index: 1;
+  gap: 1.2rem;
+  margin-top: 1rem;
 }
 
 /* QR */
@@ -213,17 +223,9 @@ body {
 .qr-box {
   width: 8rem;
   height: 8rem;
-
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.04);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.5rem;
-  overflow: hidden;
+  flex: 0 0 auto;
+  margin-top: 0.7rem;
+  margin-right: 0.3rem;
 }
 
 .qr-img {
@@ -235,6 +237,7 @@ body {
 /* CONTACT */
 
 .contact-block {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -242,7 +245,7 @@ body {
 
 /* Name */
 .contact-name {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--white);
   letter-spacing: 0.02em;
@@ -250,7 +253,7 @@ body {
 
 /* Role */
 .contact-role {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: var(--accent);
   letter-spacing: 0.04em;
 }
@@ -260,14 +263,14 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.75);
 }
 
 /* Icons */
 .contact-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.15rem;
+  height: 1.15rem;
   opacity: 0.85;
 }
 
@@ -281,7 +284,6 @@ body {
 ========================= */
 
 .week-strip {
-
   background: var(--black-soft);
 
   display: grid;
@@ -308,7 +310,6 @@ body {
 
 .week-corner,
 .week-day {
-
   padding: 0.3rem 0;
 
   text-align: center;
@@ -326,7 +327,6 @@ body {
 }
 
 .week-day-name {
-
   font-size: var(--fs-xs);
 
   color: rgba(255, 255, 255, 0.4);
@@ -339,7 +339,6 @@ body {
 }
 
 .week-day-date {
-
   font-size: 1.3rem;
 
   color: rgba(255, 255, 255, 0.75);
@@ -348,7 +347,6 @@ body {
 }
 
 .week-day.today .week-day-date {
-
   width: 2rem;
   height: 2rem;
 
@@ -372,7 +370,6 @@ body {
 ========================= */
 
 .timetable-body {
-
   flex: 1;
 
   display: grid;
@@ -389,7 +386,6 @@ body {
 ========================= */
 
 .time-gutter {
-
   background: var(--white);
 
   border-right: 1px solid var(--gray-100);
@@ -400,7 +396,6 @@ body {
 }
 
 .time-label {
-
   flex: 1;
 
   min-height: 4.8rem;
@@ -429,17 +424,17 @@ body {
 ========================= */
 
 .cards-pane {
-
   padding: 1.2rem;
 
   background: var(--white);
 
-  background-image:
-    repeating-linear-gradient(90deg,
-      transparent,
-      transparent calc(20% - 1px),
-      var(--gray-50) calc(20% - 1px),
-      var(--gray-50) 20%);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent calc(20% - 1px),
+    var(--gray-50) calc(20% - 1px),
+    var(--gray-50) 20%
+  );
 }
 
 /* =========================
@@ -447,7 +442,6 @@ body {
 ========================= */
 
 .card-grid {
-
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
@@ -466,7 +460,6 @@ body {
 ========================= */
 
 .card {
-
   background: var(--gray-50);
 
   border-radius: var(--radius-md);
@@ -513,8 +506,7 @@ body {
 }
 
 .card::before {
-
-  content: '';
+  content: "";
 
   position: absolute;
 
@@ -554,7 +546,6 @@ body {
 /* CARD TAG */
 
 .card-tag {
-
   font-size: var(--fs-xs);
 
   text-transform: uppercase;
@@ -575,7 +566,7 @@ body {
 }
 
 .c-amber .card-tag {
-  color: #854F0B;
+  color: #854f0b;
 }
 
 .c-coral .card-tag {
@@ -593,10 +584,9 @@ body {
 /* CARD HEADING */
 
 .card-heading {
+  font-family: "DM Serif Display", serif;
 
-  font-family: 'DM Serif Display', serif;
-
-   font-size: var(--fs-lg);
+  font-size: var(--fs-lg);
 
   line-height: 1.2;
 
@@ -632,13 +622,11 @@ body {
   color: var(--gray-200);
 }
 
-
 /* =========================
    TOOLS CARD
 ========================= */
 
 .tools-card {
-
   background: var(--black-soft);
 
   border-radius: 0;
@@ -655,7 +643,6 @@ body {
 ========================= */
 
 .tools-row {
-
   display: flex;
 
   justify-content: space-between;
@@ -674,7 +661,6 @@ body {
 ========================= */
 
 .tool-mini {
-
   display: flex;
 
   flex-direction: column;
@@ -695,7 +681,6 @@ body {
 ========================= */
 
 .tool-icon-img {
-
   width: 3.4rem;
   height: 3.4rem;
 
@@ -711,7 +696,6 @@ body {
 ========================= */
 
 .tool-name-mini {
-
   font-size: 0.72rem;
 
   font-weight: 500;
@@ -734,7 +718,6 @@ body {
 ========================= */
 
 .footer {
-
   background: var(--black);
 
   padding: 1.4rem 2rem;
@@ -751,7 +734,6 @@ body {
 }
 
 .footer-right {
-
   justify-self: end;
 
   max-width: 24rem;
@@ -765,15 +747,11 @@ body {
   text-align: left;
 }
 
-
-
-
 /* =========================
    SHARED HEADINGS
 ========================= */
 
 .heading-x {
-
   font-size: 1rem;
 
   text-transform: uppercase;
@@ -797,7 +775,6 @@ body {
 ========================= */
 
 .footer-reference {
-
   font-size: var(--fs-xs);
 
   line-height: 1.55;
@@ -812,7 +789,6 @@ body {
 ========================= */
 
 .footer-center {
-
   display: flex;
 
   flex-direction: row;
@@ -825,7 +801,6 @@ body {
 }
 
 .footer-logo {
-
   width: 7rem;
   height: 2.6rem;
 
@@ -849,7 +824,6 @@ body {
 }
 
 .footer-logo-img {
-
   max-height: 5rem;
 
   max-width: 100%;
@@ -870,7 +844,6 @@ body {
 ========================= */
 
 .footer-ack {
-
   font-size: var(--fs-xs);
 
   line-height: 1.45;
@@ -885,9 +858,7 @@ body {
 ========================= */
 
 @media (max-width: 900px) {
-
   .footer {
-
     grid-template-columns: 1fr;
 
     gap: 2rem;
@@ -912,13 +883,11 @@ body {
 ========================= */
 
 @media (max-width: 900px) {
-
   body {
     padding: 1rem;
   }
 
   .poster {
-
     width: 100%;
 
     aspect-ratio: auto;
@@ -966,7 +935,6 @@ body {
 ========================= */
 
 @media print {
-
   @page {
     size: A1 portrait;
     margin: 0;
@@ -978,7 +946,6 @@ body {
   }
 
   .poster {
-
     width: 594mm;
     height: 841mm;
 
