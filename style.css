@@ -227,6 +227,18 @@ body {
   object-fit: contain;
   display: block;
 }
+
+.qr-text {
+  margin-top: 0.4rem;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.75);
+
+  text-align: center;
+
+  letter-spacing: 0.03em;
+}
 /* CONTACT */
 
 .contact-block {
@@ -1054,6 +1066,10 @@ body {
 
   .week-day-date {
     font-size: 1.2rem;
+  }
+
+  .qr-box {
+    display: none;
   }
 
   /* =========================
