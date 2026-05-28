@@ -418,6 +418,24 @@ body {
   color: var(--gray-200);
 
   letter-spacing: 0.05em;
+
+  position: relative;
+}
+
+.time-label::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0.9rem;
+  left: 100%;
+
+  width: 2000px;
+  height: 1px;
+
+  background: rgba(0, 0, 0, 0.12); /* slightly stronger but still faint */
+
+  pointer-events: none;
 }
 
 .first-label {
@@ -656,7 +674,7 @@ body {
 }
 
 .image-note {
-  margin-bottom: 15rem;
+  margin-top: 7.5rem;
 
   font-size: 0.85rem;
   line-height: 1.4;
