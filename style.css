@@ -614,6 +614,10 @@ body {
   overflow: hidden;
 }
 
+.grid-image-1 {
+  margin-top:8rem;
+}
+
 .grid-image img {
   margin-top: 0.5rem;
 }
